@@ -1,0 +1,58 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5 col-sm-offset-3">
+        <div class="panel panel-primary p-t-10">
+          <div class="panel-body">
+            <form class="form" [formGroup]="loginForm" (ngSubmit)="doLogin()" novalidate>
+              
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-user"></i></span>
+                      <input type="text" class="form-control" formControlName="userName" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-key"></i></span>
+                      <input type="password" class="form-control" formControlName="password" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                      <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.status == 'INVALID' ? true : false">Login</button>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-6">
+          <button type="submit" class="btn btn-primary" (click)=register()>Register</button>
+        </div>
+        <div class="col-sm-6">
+          <button type="submit" class="btn btn-primary">Forgot Password</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

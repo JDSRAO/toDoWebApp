@@ -1,0 +1,60 @@
+<section>
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+                  <div class="panel panel-primary">
+                          <div class="panel-heading">    
+                              <h3 class="panel-title" *ngIf="!isEditMode()">Enter Details</h3> 
+                              <h3 class="panel-title" *ngIf="isEditMode()">Update Details</h3> 
+                          </div>
+                          <div class="panel-body">    
+                              <form class="form" [formGroup]="todoForm" (ngSubmit)="addToDoItem()" novalidate>
+                                  <div class="row">
+                                      <div class="col-sm-12">
+                                          <div class="form-group">
+                                              <label>Title</label>
+                                              <input type="text" class="form-control" formControlName="title">
+                                          </div>
+                                      </div>
+                                  </div>
+                  
+                                  <div class="row">
+                                      <div class="col-sm-12">
+                                          <div class="form-group">
+                                              <label>Description</label>
+                                              <textarea class="form-control" rows="3" formControlName="description"></textarea>
+                                          </div>
+                                      </div>
+                                  </div>
+                                      
+                                  <div class="row">
+                                      <div class="col-sm-6">
+                                          <div class="form-group">
+                                            <label>Due Date</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" formControlName="dueDate" bsDatepicker #dp="bsDatepicker" />
+                                                <span class="input-group-addon" (click)="dp.toggle()"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                          </div>
+                                      </div>               
+                                      <div class="col-sm-6" [style.display]="!isEditMode()?'none':'inherit'">
+                                          <div class="form-group checkbox"> 
+                                              <label class="center-block">
+                                                  <input type="checkbox" formControlName="done">
+                                                  <i class="input-helper"></i>
+                                                  Done  
+                                              </label>    
+                                          </div>
+                                      </div>
+                                  </div>
+                                          
+                                  <button type="submit" class="btn btn-primary" [disabled]="todoForm.status == 'INVALID' ? true : false" *ngIf="!isEditMode()">Add</button>
+                                  <button type="submit" class="btn btn-primary" [disabled]="todoForm.status == 'INVALID' ? true : false" *ngIf="isEditMode()">Update</button>
+                              </form>
+                          </div>
+                      </div> 
+          </div>
+      </div>
+  </div>
+                 
+</section> 

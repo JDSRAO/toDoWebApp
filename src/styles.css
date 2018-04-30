@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.p-t-10{
+    padding-top: 10px;
+}
+
+.p-t-100{
+    padding-top: 100px;
+}
+
+a {
+    cursor: pointer;
+}
+
+.w-100
+{
+    width: 100% !important;
+}
